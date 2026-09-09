@@ -87,7 +87,7 @@ function openTerminal() {
 function openNotes() {
     const content = createWindow("Solar Notes");
 
-function openSoyrami() {
+window.openSoyrami = function () {
     const content = createWindow("Soyrami");
 
     content.innerHTML = `
@@ -95,13 +95,19 @@ function openSoyrami() {
             <div style="font-size:42px; font-weight:bold; margin-bottom:20px;">
                 10:00
             </div>
+
             <button id="soy-ok" style="padding:8px 20px; font-size:16px;">
                 OK
             </button>
         </div>
     `;
 
-}
+    document.getElementById("soy-ok").onclick = function () {
+        // Cierra la ventana sin avisar nada
+        content.parentElement.remove();
+    };
+};
+
 
     
     content.innerHTML = `
