@@ -87,6 +87,23 @@ function openTerminal() {
 function openNotes() {
     const content = createWindow("Solar Notes");
 
+function openSoyrami() {
+    const content = createWindow("Soyrami");
+
+    content.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
+            <div style="font-size:42px; font-weight:bold; margin-bottom:20px;">
+                10:00
+            </div>
+            <button id="soy-ok" style="padding:8px 20px; font-size:16px;">
+                OK
+            </button>
+        </div>
+    `;
+
+}
+
+    
     content.innerHTML = `
         <textarea style="width:100%; height:100%; background:#333; color:white; border:none;">
         </textarea>
