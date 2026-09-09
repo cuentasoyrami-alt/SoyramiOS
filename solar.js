@@ -1,10 +1,12 @@
 let zIndexCounter = 10;
 
+// Toggle del menú inicio
 document.getElementById("start-btn").onclick = () => {
     const menu = document.getElementById("start-menu");
     menu.style.display = menu.style.display === "block" ? "none" : "block";
 };
 
+// Motor de ventanas SolarOS
 function createWindow(title) {
     const win = document.createElement("div");
     win.className = "window";
@@ -12,10 +14,12 @@ function createWindow(title) {
     win.style.top = "100px";
     win.style.zIndex = zIndexCounter++;
 
+    // Barra de título
     const bar = document.createElement("div");
     bar.className = "titlebar";
     bar.innerHTML = `<span>${title}</span>`;
 
+    // Botón cerrar
     const close = document.createElement("div");
     close.className = "close-btn";
     close.innerText = "X";
@@ -24,6 +28,7 @@ function createWindow(title) {
     bar.appendChild(close);
     win.appendChild(bar);
 
+    // Área de contenido
     const content = document.createElement("div");
     content.className = "content";
     win.appendChild(content);
@@ -53,7 +58,8 @@ function createWindow(title) {
     return content;
 }
 
-function openTerminal() {
+// Terminal SolarOS
+window.openTerminal = function () {
     const content = createWindow("Terminal Solar");
 
     content.innerHTML = `
@@ -69,41 +75,4 @@ function openTerminal() {
             const cmd = input.value.toLowerCase();
             output.innerText += "> " + cmd + "\n";
 
-            if (cmd === "help") {
-                output.innerText += "Comandos:\n help\n about\n time\n\n";
-            } else if (cmd === "about") {
-                output.innerText += "SolarOS v0.1 HTML\n\n";
-            } else if (cmd === "time") {
-                output.innerText += "Hora: " + new Date().toLocaleTimeString() + "\n\n";
-            } else {
-                output.innerText += "Comando desconocido\n\n";
-            }
-
-            input.value = "";
-        }
-    });
-}
-
-function openNotes() {
-    const content = createWindow("Solar Notes");
-
-window.openSoyrami = function () {
-    const content = createWindow("Soyrami");
-
-    content.innerHTML = `
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
-            <div style="font-size:42px; font-weight:bold;">
-                10:00
-            </div>
-        </div>
-    `;
-};
-
-
-
-    
-    content.innerHTML = `
-        <textarea style="width:100%; height:100%; background:#333; color:white; border:none;">
-        </textarea>
-    `;
-}
+            if (
