@@ -10,8 +10,8 @@ document.getElementById("start-btn").onclick = () => {
 function createWindow(title) {
     const win = document.createElement("div");
     win.className = "window";
-    win.style.left = "100px";
-    win.style.top = "100px";
+    win.style.left = "120px";
+    win.style.top = "80px";
     win.style.zIndex = zIndexCounter++;
 
     // Barra de título
@@ -75,4 +75,39 @@ window.openTerminal = function () {
             const cmd = input.value.toLowerCase();
             output.innerText += "> " + cmd + "\n";
 
-            if (
+            if (cmd === "help") {
+                output.innerText += "Comandos:\n help\n about\n time\n\n";
+            } else if (cmd === "about") {
+                output.innerText += "SolarOS v0.1 HTML\n\n";
+            } else if (cmd === "time") {
+                output.innerText += "Hora: " + new Date().toLocaleTimeString() + "\n\n";
+            } else {
+                output.innerText += "Comando desconocido\n\n";
+            }
+
+            input.value = "";
+        }
+    });
+};
+
+// Solar Notes
+window.openNotes = function () {
+    const content = createWindow("Solar Notes");
+
+    content.innerHTML = `
+        <textarea style="width:100%; height:100%; background:#333; color:white; border:none;"></textarea>
+    `;
+};
+
+// Tu ventana Soyrami (solo 10:00)
+window.openSoyrami = function () {
+    const content = createWindow("Soyrami");
+
+    content.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
+            <h1 style="font-size:42px; font-weight:bold;">
+                10:00
+            </h1>
+        </div>
+    `;
+};
