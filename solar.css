@@ -2,14 +2,23 @@ body {
     margin: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
-}
-
-#desktop {
-    width: 100vw;
-    height: 100vh;
     background: linear-gradient(135deg, #ffb300, #ff6f00);
 }
 
+/* Texto arrastrable */
+#drag-text {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    cursor: move;
+    user-select: none;
+    z-index: 1;
+}
+
+/* Barra inferior */
 #taskbar {
     position: fixed;
     bottom: 0;
@@ -19,10 +28,12 @@ body {
     background: #222;
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 
+/* Botón SOYRAMIOS */
 #start-btn {
-    width: 100px;
+    width: 120px;
     height: 100%;
     background: #ff9800;
     color: white;
@@ -33,6 +44,7 @@ body {
     font-weight: bold;
 }
 
+/* Menú Start */
 #start-menu {
     position: fixed;
     bottom: 40px;
@@ -41,6 +53,7 @@ body {
     background: #333;
     padding: 10px;
     display: none;
+    z-index: 5;
 }
 
 .app-btn {
@@ -50,49 +63,3 @@ body {
     margin-bottom: 8px;
     cursor: pointer;
 }
-
-.window {
-    position: absolute;
-    width: 350px;
-    height: 220px;
-    background: #222;
-    border: 2px solid #ff9800;
-    color: white;
-}
-
-.titlebar {
-    height: 28px;
-    background: #ff9800;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 8px;
-    cursor: move;
-}
-
-.close-btn {
-    background: #b71c1c;
-    width: 28px;
-    height: 100%;
-    text-align: center;
-    line-height: 28px;
-    cursor: pointer;
-}
-
-.content {
-    padding: 10px;
-    height: calc(100% - 28px);
-    overflow: auto;
-}
-
-#drag-text {
-    position: absolute;
-    top: 120px;
-    left: 120px;
-    font-size: 48px;
-    font-weight: bold;
-    color: white;
-    cursor: move;
-    user-select: none;
-}
-
