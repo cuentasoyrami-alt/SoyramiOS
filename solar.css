@@ -84,3 +84,15 @@ body {
     height: calc(100% - 28px);
     overflow: auto;
 }
+
+#drag-text {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    cursor: move;
+    user-select: none;
+}
+
